@@ -1,7 +1,8 @@
 FROM python:3.9-slim
 EXPOSE 8080
 RUN useradd -ms /bin/bash garden
-
+RUN apt-get update
+RUN apt-get install -y gcc
 USER garden
 WORKDIR /app
 ENV PATH="{$PATH}:/home/garden/.local/bin"
