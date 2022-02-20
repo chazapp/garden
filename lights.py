@@ -5,12 +5,12 @@ from gpiozero import TimeOfDay, PWMLED
 
 class Lights:
     def __init__(self):
-        self.daytime = TimeOfDay(time(8), time(20))
-        self.daytime.when_activated = self.onActivate
-        self.daytime.when_deactivated = self.onDeactivate
         self.red = PWMLED("GPIO16")
         self.green = PWMLED("GPIO20")
         self.blue = PWMLED("GPIO21")
+        self.daytime = TimeOfDay(time(8), time(20))
+        self.daytime.when_activated = self.onActivate
+        self.daytime.when_deactivated = self.onDeactivate
 
     def onActivate(self):
         self.red.value = 1
