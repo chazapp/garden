@@ -13,11 +13,17 @@ class Lights:
         self.blue = PWMLED("GPIO21")
 
     def onActivate(self):
-        self.r.value = 1
-        self.g.value = 1
-        self.b.value = 1
-
+        self.red.value = 1
+        self.green.value = 1
+        self.blue.value = 1
+        self.red.on()
+        self.green.on()
+        self.blue.on()
+        
     def onDeactivate(self):
-        self.r.value = 0
-        self.g.value = 0
-        self.b.value = 0
+        self.red.value = 0
+        self.green.value = 0
+        self.blue.value = 0
+        self.red.off()
+        self.green.off()
+        self.blue.off()
