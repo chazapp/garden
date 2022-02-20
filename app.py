@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, current_app
 from threading import Thread
 from sensors import Sensors
+from lights import Lights
 
 bp = Blueprint('metrics', __name__)
 
@@ -25,6 +26,7 @@ def metrics():
 def create_app():
     app = Flask(__name__)
     app.sensors = Sensors()
+    app.lights = Lights()
     app.register_blueprint(bp)
     return app
 
